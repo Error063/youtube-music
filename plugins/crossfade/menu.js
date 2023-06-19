@@ -6,7 +6,7 @@ const promptOptions = require("../../providers/prompt-options");
 
 module.exports = (win) => [
 	{
-		label: "Advanced",
+		label: "高级",
 		click: async () => {
 			const newOptions = await promptCrossfadeValues(win, config.getAll());
 			if (newOptions) config.setAll(newOptions);
@@ -17,11 +17,11 @@ module.exports = (win) => [
 async function promptCrossfadeValues(win, options) {
 	const res = await prompt(
 		{
-			title: "Crossfade Options",
+			title: "设置",
 			type: "multiInput",
 			multiInputOptions: [
 				{
-					label: "Fade in duration (ms)",
+					label: "淡入淡出持续时间（毫秒）",
 					value: options.fadeInDuration || defaultOptions.fadeInDuration,
 					inputAttrs: {
 						type: "number",
@@ -31,7 +31,7 @@ async function promptCrossfadeValues(win, options) {
 					},
 				},
 				{
-					label: "Fade out duration (ms)",
+					label: "淡出持续时间（毫秒）",
 					value: options.fadeOutDuration || defaultOptions.fadeOutDuration,
 					inputAttrs: {
 						type: "number",
@@ -41,7 +41,7 @@ async function promptCrossfadeValues(win, options) {
 					},
 				},
 				{
-					label: "Crossfade x seconds before end",
+					label: "结束前交叉淡入淡出 x 秒",
 					value:
 						options.secondsBeforeEnd || defaultOptions.secondsBeforeEnd,
 					inputAttrs: {
@@ -51,7 +51,7 @@ async function promptCrossfadeValues(win, options) {
 					},
 				},
 				{
-					label: "Fade scaling",
+					label: "淡化缩放",
 					selectOptions: { linear: "Linear", logarithmic: "Logarithmic" },
 					value: options.fadeScaling || defaultOptions.fadeScaling,
 				},

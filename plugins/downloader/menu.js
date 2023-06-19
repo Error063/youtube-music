@@ -11,7 +11,7 @@ module.exports = () => {
 			click: () => downloadPlaylist(),
 		},
 		{
-			label: "Choose download folder",
+			label: "选择下载文件夹",
 			click: () => {
 				const result = dialog.showOpenDialogSync({
 					properties: ["openDirectory", "createDirectory"],
@@ -23,7 +23,7 @@ module.exports = () => {
 			},
 		},
 		{
-			label: "Presets",
+			label: "预设",
 			submenu: Object.keys(presets).map((preset) => ({
 				label: preset,
 				type: "radio",
@@ -34,7 +34,7 @@ module.exports = () => {
 			})),
 		},
 		{
-			label: "Skip existing files",
+			label: "跳过存在的文件",
 			type: "checkbox",
 			checked: config.get("skipExisting"),
 			click: (item) => {

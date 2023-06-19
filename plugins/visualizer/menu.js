@@ -9,7 +9,7 @@ const visualizerTypes = readdirSync(path.join(__dirname, "visualizers")).map(
 
 module.exports = (win, options) => [
 	{
-		label: "Type",
+		label: "样式",
 		submenu: visualizerTypes.map((visualizerType) => ({
 			label: visualizerType,
 			type: "radio",

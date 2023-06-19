@@ -408,10 +408,10 @@ app.on("ready", () => {
 				"https://github.com/th-ch/youtube-music/releases/latest";
 			const dialogOpts = {
 				type: "info",
-				buttons: ["OK", "Download", "Disable updates"],
-				title: "Application Update",
-				message: "A new version is available",
-				detail: `A new version is available and can be downloaded at ${downloadLink}`,
+				buttons: ["好", "下载（原版）", "禁用更新"],
+				title: "有可用的更新",
+				message: "当前有可用的更新（原版）",
+				detail: `有可用的更新，可在 ${downloadLink} 下载`,
 			};
 			electron.dialog.showMessageBox(dialogOpts).then((dialogOutput) => {
 				switch (dialogOutput.response) {
@@ -432,8 +432,8 @@ app.on("ready", () => {
 
 	if (config.get("options.hideMenu") && !config.get("options.hideMenuWarned")) {
 		electron.dialog.showMessageBox(mainWindow, {
-			type: 'info', title: 'Hide Menu Enabled',
-			message: "Menu is hidden, use 'Alt' to show it (or 'Escape' if using in-app-menu)"
+			type: 'info', title: '目录已被隐藏',
+			message: "目录已被隐藏，使用‘Alt’键显示它（如果是应用内目录使用空格键）"
 		});
 		config.set("options.hideMenuWarned", true);
 	}
@@ -465,10 +465,10 @@ function showUnresponsiveDialog(win, details) {
 	}
 	electron.dialog.showMessageBox(win, {
 		type: "error",
-		title: "Window Unresponsive",
-		message: "The Application is Unresponsive",
-		details: "We are sorry for the inconvenience! please choose what to do:",
-		buttons: ["Wait", "Relaunch", "Quit"],
+		title: "应用无响应",
+		message: "应用无响应",
+		details: "我们对此感到抱歉，请选择接下来的操作：",
+		buttons: ["等待应用响应", "重启应用", "退出应用"],
 		cancelId: 0
 	}).then( result => {
 		switch (result.response) {

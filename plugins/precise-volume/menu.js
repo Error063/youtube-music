@@ -17,7 +17,7 @@ function changeOptions(changedOptions, options, win) {
 
 module.exports = (win, options) => [
 	{
-		label: "Local Arrowkeys Controls",
+		label: "本地箭头键控件",
 		type: "checkbox",
 		checked: !!options.arrowsShortcut,
 		click: item => {
@@ -25,13 +25,13 @@ module.exports = (win, options) => [
 		}
 	},
 	{
-		label: "Global Hotkeys",
+		label: "全局热键",
 		type: "checkbox",
 		checked: !!options.globalShortcuts.volumeUp || !!options.globalShortcuts.volumeDown,
 		click: item => promptGlobalShortcuts(win, options, item)
 	},
 	{
-		label: "Set Custom Volume Steps",
+		label: "设置音量间隔",
 		click: () => promptVolumeSteps(win, options)
 	}
 ];
@@ -41,8 +41,8 @@ const kb = (label_, value_, default_) => { return { value: value_, label: label_
 
 async function promptVolumeSteps(win, options) {
 	const output = await prompt({
-		title: "Volume Steps",
-		label: "Choose Volume Increase/Decrease Steps",
+		title: "音量间隔",
+		label: "设置音量增加/减少值",
 		value: options.steps || 1,
 		type: "counter",
 		counterOptions: { minimum: 0, maximum: 100, multiFire: true },
@@ -57,12 +57,12 @@ async function promptVolumeSteps(win, options) {
 
 async function promptGlobalShortcuts(win, options, item) {
 	const output = await prompt({
-		title: "Global Volume Keybinds",
-		label: "Choose Global Volume Keybinds:",
+		title: "全局音量键绑定",
+		label: "选择全局音量键绑定：",
 		type: "keybind",
 		keybindOptions: [
-			kb("Increase Volume", "volumeUp", options.globalShortcuts?.volumeUp),
-			kb("Decrease Volume", "volumeDown", options.globalShortcuts?.volumeDown)
+			kb("增大音量", "volumeUp", options.globalShortcuts?.volumeUp),
+			kb("减少音量", "volumeDown", options.globalShortcuts?.volumeDown)
 		],
 		...promptOptions()
 	}, win)

@@ -6,7 +6,7 @@ module.exports = (_win, options) => [
 	...(is.linux()
 		? [
 			{
-				label: "Notification Priority",
+				label: "通知优先值",
 				submenu: urgencyLevels.map((level) => ({
 					label: level.name,
 					type: "radio",
@@ -19,7 +19,7 @@ module.exports = (_win, options) => [
 	...(is.windows()
 		? [
 			{
-				label: "Interactive Notifications",
+				label: "交互通知",
 				type: "checkbox",
 				checked: options.interactive,
 				// doesn't update until restart
@@ -27,22 +27,22 @@ module.exports = (_win, options) => [
 			},
 			{
 				// submenu with settings for interactive notifications (name shouldn't be too long)
-				label: "Interactive Settings",
+				label: "交互设置",
 				submenu: [
 					{
-						label: "Open/Close on tray click",
+						label: "单击托盘打开/关闭",
 						type: "checkbox",
 						checked: options.trayControls,
 						click: (item) => config.set("trayControls", item.checked),
 					},
 					{
-						label: "Hide Button Text",
+						label: "隐藏按钮文本",
 						type: "checkbox",
 						checked: options.hideButtonText,
 						click: (item) => config.set("hideButtonText", item.checked),
 					},
 					{
-						label: "Refresh on Play/Pause",
+						label: "播放/暂停时刷新",
 						type: "checkbox",
 						checked: options.refreshOnPlayPause,
 						click: (item) => config.set("refreshOnPlayPause", item.checked),
@@ -50,13 +50,13 @@ module.exports = (_win, options) => [
 				]
 			},
 			{
-				label: "Style",
+				label: "主题",
 				submenu: getToastStyleMenuItems(options)
 			},
 		]
 		: []),
 	{
-		label: "Show notification on unpause",
+		label: "在取消暂停时显示通知",
 		type: "checkbox",
 		checked: options.unpauseNotification,
 		click: (item) => config.set("unpauseNotification", item.checked),

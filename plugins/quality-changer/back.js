@@ -6,9 +6,9 @@ module.exports = () => {
             type: "question",
             buttons: qualityLabels,
             defaultId: currentIndex,
-            title: "Choose Video Quality",
-            message: "Choose Video Quality:",
-            detail: `Current Quality: ${qualityLabels[currentIndex]}`,
+            title: "选择视频画质",
+            message: "选择视频画质:",
+            detail: `当前画质: ${qualityLabels[currentIndex]}`,
             cancelId: -1
         })
     })

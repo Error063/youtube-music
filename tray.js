@@ -61,35 +61,35 @@ module.exports.setUpTray = (app, win) => {
 
 	let template = [
 		{
-			label: "Play/Pause",
+			label: "播放/暂停",
 			click: () => {
 				playPause();
 			},
 		},
 		{
-			label: "Next",
+			label: "下一首",
 			click: () => {
 				next();
 			},
 		},
 		{
-			label: "Previous",
+			label: "上一首",
 			click: () => {
 				previous();
 			},
 		},
 		{
-			label: "Show",
+			label: "打开Youtube Music",
 			click: () => {
 				win.show();
 				app.dock?.show();
 			},
 		},
 		{
-			label: "Restart App",
+			label: "重启应用",
 			click: restart
 		},
-		{ role: "quit" },
+		{ label: "退出Youtube Music", role: "quit" },
 	];
 
 	const trayMenu = Menu.buildFromTemplate(template);

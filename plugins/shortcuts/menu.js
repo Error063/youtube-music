@@ -4,11 +4,11 @@ const promptOptions = require("../../providers/prompt-options");
 
 module.exports = (win, options) => [
 	{
-		label: "Set Global Song Controls",
+		label: "设置全局歌曲控制",
 		click: () => promptKeybind(options, win)
 	},
 	{
-		label: "Override MediaKeys",
+		label: "覆盖媒体键(?)",
 		type: "checkbox",
 		checked: options.overrideMediaKeys,
 		click: item => setOption(options, "overrideMediaKeys", item.checked)
@@ -28,13 +28,13 @@ const kb = (label_, value_, default_) => { return { value: value_, label: label_
 
 async function promptKeybind(options, win) {
 	const output = await prompt({
-		title: "Global Keybinds",
-		label: "Choose Global Keybinds for Songs Control:",
+		title: "全局键绑定",
+		label: "为歌曲控制选择全局键绑定：",
 		type: "keybind",
 		keybindOptions: [ // If default=undefined then no default is used
-			kb("Previous", "previous", options.global?.previous),
-			kb("Play / Pause", "playPause", options.global?.playPause),
-			kb("Next", "next", options.global?.next)
+			kb("上一首", "previous", options.global?.previous),
+			kb("播放/暂停", "playPause", options.global?.playPause),
+			kb("下一首", "next", options.global?.next)
 		],
 		height: 270,
 		...promptOptions()

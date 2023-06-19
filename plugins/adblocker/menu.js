@@ -2,7 +2,7 @@ const config = require("./config");
 
 module.exports = () => [
 	{
-		label: "Blocker",
+		label: "拦截工作模式",
 		submenu: Object.values(config.blockers).map((blocker) => ({
 			label: blocker,
 			type: "radio",

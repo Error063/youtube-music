@@ -15,12 +15,12 @@ module.exports = (win, options, refreshMenu) => {
 
 	return [
 		{
-			label: isConnected() ? "Connected" : "Reconnect",
+			label: isConnected() ? "已连接" : "重新连接",
 			enabled: !isConnected(),
 			click: connect,
 		},
 		{
-			label: "Auto reconnect",
+			label: "自动重连",
 			type: "checkbox",
 			checked: options.autoReconnect,
 			click: (item) => {
@@ -29,11 +29,11 @@ module.exports = (win, options, refreshMenu) => {
 			},
 		},
 		{
-			label: "Clear activity",
+			label: "清除活动",
 			click: clear,
 		},
 		{
-			label: "Clear activity after timeout",
+			label: "超时后清除活动",
 			type: "checkbox",
 			checked: options.activityTimoutEnabled,
 			click: (item) => {
@@ -42,7 +42,7 @@ module.exports = (win, options, refreshMenu) => {
 			},
 		},
 		{
-			label: "Listen Along",
+			label: "一起听",
 			type: "checkbox",
 			checked: options.listenAlong,
 			click: (item) => {
@@ -51,7 +51,7 @@ module.exports = (win, options, refreshMenu) => {
 			},
 		},
 		{
-			label: "Hide duration left",
+			label: "隐藏剩余时长",
 			type: "checkbox",
 			checked: options.hideDurationLeft,
 			click: (item) => {
@@ -60,7 +60,7 @@ module.exports = (win, options, refreshMenu) => {
 			}
 		},
 		{
-			label: "Set inactivity timeout",
+			label: "设置不活动超时",
 			click: () => setInactivityTimeout(win, options),
 		},
 	];
@@ -68,8 +68,8 @@ module.exports = (win, options, refreshMenu) => {
 
 async function setInactivityTimeout(win, options) {
 	let output = await prompt({
-		title: 'Set Inactivity Timeout',
-		label: 'Enter inactivity timeout in seconds:',
+		title: '设置不活动超时',
+		label: '输入不活动超时（以秒为单位）：',
 		value: Math.round((options.activityTimoutTime ?? 0) / 1e3),
 		type: "counter",
 		counterOptions: { minimum: 0, multiFire: true },
@@ -79,6 +79,6 @@ async function setInactivityTimeout(win, options) {
 
 	if (output) {
 		options.activityTimoutTime = Math.round(output * 1e3);
-		setMenuOptions("discord", options);
+		setMenuOptions("Discord", options);
 	}
 }

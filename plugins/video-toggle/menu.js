@@ -2,10 +2,10 @@ const { setMenuOptions } = require("../../config/plugins");
 
 module.exports = (win, options) => [
     {
-        label: "Mode",
+        label: "模式",
         submenu: [
             {
-                label: "Custom toggle",
+                label: "自定义",
                 type: "radio",
                 checked: options.mode === 'custom',
                 click: () => {
@@ -14,7 +14,7 @@ module.exports = (win, options) => [
                 }
             },
             {
-                label: "Native toggle",
+                label: "本地",
                 type: "radio",
                 checked: options.mode === 'native',
                 click: () => {
@@ -23,7 +23,7 @@ module.exports = (win, options) => [
                 }
             },
             {
-                label: "Disabled",
+                label: "禁用",
                 type: "radio",
                 checked: options.mode === 'disabled',
                 click: () => {
@@ -34,10 +34,10 @@ module.exports = (win, options) => [
         ]
     },
     {
-        label: "Alignment",
+        label: "对齐",
         submenu: [
             {
-                label: "Left",
+                label: "靠左对齐",
                 type: "radio",
                 checked: options.align === 'left',
                 click: () => {
@@ -46,7 +46,7 @@ module.exports = (win, options) => [
                 }
             },
             {
-                label: "Middle",
+                label: "居中对齐",
                 type: "radio",
                 checked: options.align === 'middle',
                 click: () => {
@@ -55,7 +55,7 @@ module.exports = (win, options) => [
                 }
             },
             {
-                label: "Right",
+                label: "靠右对齐",
                 type: "radio",
                 checked: options.align === 'right',
                 click: () => {
@@ -66,7 +66,7 @@ module.exports = (win, options) => [
         ]
     },
     {
-        label: "Force Remove Video Tab",
+        label: "强制删除视频选项卡",
         type: "checkbox",
         checked: options.forceHide,
         click: item => {

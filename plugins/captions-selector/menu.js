@@ -2,7 +2,7 @@ const config = require("./config");
 
 module.exports = () => [
     {
-        label: "Automatically select last used caption",
+        label: "自动选择上次使用的字幕",
         type: "checkbox",
         checked: config.get("autoload"),
         click: (item) => {
@@ -10,7 +10,7 @@ module.exports = () => [
         }
     },
     {
-        label: "No captions by default",
+        label: "默认没有字幕",
         type: "checkbox",
         checked: config.get("disabledCaptions"),
         click: (item) => {

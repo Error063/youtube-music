@@ -1,7 +1,7 @@
 const defaultConfig = {
 	"window-size": {
-		width: 1100,
-		height: 550,
+		width: 1396,
+		height: 768,
 	},
 	url: "https://music.youtube.com",
 	options: {

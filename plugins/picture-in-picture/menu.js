@@ -5,7 +5,7 @@ const { setOptions } = require("./back.js");
 
 module.exports = (win, options) => [
     {
-        label: "Always on top",
+        label: "总在最前面",
         type: "checkbox",
         checked: options.alwaysOnTop,
         click: (item) => {
@@ -14,7 +14,7 @@ module.exports = (win, options) => [
         },
     },
     {
-        label: "Save window position",
+        label: "保留窗口位置",
         type: "checkbox",
         checked: options.savePosition,
         click: (item) => {
@@ -22,7 +22,7 @@ module.exports = (win, options) => [
         },
     },
     {
-        label: "Save window size",
+        label: "保留窗口大小",
         type: "checkbox",
         checked: options.saveSize,
         click: (item) => {
@@ -30,13 +30,13 @@ module.exports = (win, options) => [
         },
     },
     {
-        label: "Hotkey",
+        label: "快捷键",
         type: "checkbox",
         checked: options.hotkey,
         click: async (item) => {
             const output = await prompt({
-                title: "Picture in Picture Hotkey",
-                label: "Choose a hotkey for toggling Picture in Picture",
+                title: "画中画快捷键",
+                label: "选择用于切换画中画的快捷键",
                 type: "keybind",
                 keybindOptions: [{
                         value: "hotkey",
@@ -58,7 +58,7 @@ module.exports = (win, options) => [
         },
     },
     {
-        label: "Use native PiP",
+        label: "使用原生画中画",
         type: "checkbox",
         checked: options.useNativePiP,
         click: (item) => {
